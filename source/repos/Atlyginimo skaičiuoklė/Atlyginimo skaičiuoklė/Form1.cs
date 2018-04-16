@@ -49,9 +49,9 @@ namespace Atlyginimo_skaičiuoklė
         //Counting Authors Salary In Hand
         private void butSkaiciuotiAtlyginimaIRankas_Click(object sender, EventArgs e)
         {
-            double Atlyginimas_ant_popieriaus = 0;
+            double Atlyginimas_ant_popieriaus = 0.0;
             //variable SalaryOnPaper obtained from textbox 
-            if (IsNumber(tBoxAtlyginimasPop.Text))
+            if (isDigital(tBoxAtlyginimasPop.Text))
             {
                 Atlyginimas_ant_popieriaus = Convert.ToDouble(this.tBoxAtlyginimasPop.Text);
             }
@@ -89,6 +89,26 @@ namespace Atlyginimo_skaičiuoklė
             labelPensijuDraudimas.Text = Sodros_pensiju_draudimas.ToString();
             labelDarbdavioSodrai.Text = Darbdavio_mokesciai.ToString();
             labelDarboVietosKaina.Text = Darbo_vietos_kaina.ToString();
+            //Procentines israiskos isvedimas
+            lblPajamuProc1.Text = (PajamuProc / 100).ToString("P");
+            lblSveikatosProc1.Text = (SveikatosProc / 100).ToString("P");
+            lblPensijuProc1.Text = (PensijuProc / 100).ToString("P");
+            lblDarbdavioProc1.Text = (DarbdavioProc / 100).ToString("P");
+        }
+
+        private bool isDigital(string input)
+        {
+            double n;
+            bool isDigital = false;
+            isDigital = double.TryParse(input, out n);
+
+            if (n <= 0)
+            {
+                isDigital = false;
+
+            }
+
+            return isDigital;
         }
 
         //private void cBoxPapildomaPensija_CheckedChanged(object sender, EventArgs e)
@@ -117,7 +137,7 @@ namespace Atlyginimo_skaičiuoklė
             double Atlyginimas_i_rankas = 0;
             double Autorinis_atlyginimas_i_rankas = 0;
             //variable SalaryInHand obtained from textbox 
-            if (IsNumber(tBoxAtlyginimasIRankas.Text) || IsNumber(tboxAutorinisIRankas.Text))
+            if (IsDigital(tBoxAtlyginimasIRankas.Text) || IsDigital(tboxAutorinisIRankas.Text))
             {
                 Atlyginimas_i_rankas = Convert.ToDouble(this.tBoxAtlyginimasIRankas.Text);
                 Autorinis_atlyginimas_i_rankas = Convert.ToDouble(this.tboxAutorinisIRankas.Text);
@@ -185,26 +205,26 @@ namespace Atlyginimo_skaičiuoklė
             lblAtlyginimas.Text = Atlyginimas_ant_popieriaus.ToString();
             lblDarbdavio.Text = Darbdavio_mokesciai.ToString();
             lblDarboVieta.Text = Darbo_vietos_kaina.ToString();
-            //Skaiciavimu isvedimas
+            //Procentines israiskos isvedimas
             lblPajamuProc.Text = (Pajamu_mokestisTBox / 100).ToString("P");
             lblSveikatosProc.Text = (Sodros_sveikatos_draudimasTBox / 100).ToString("P");
             lblPensijuProc.Text = (Sodros_pensiju_draudimasTBox / 100).ToString("P");
             lblDarbdavioProc.Text = (Darbdavio_mokesciaiTBox / 100).ToString("P");
         }
 
-        private bool IsNumber(string input)
+        private bool IsDigital(string input)
         {
-            int n;
-            bool isNumber = false;
-            isNumber = int.TryParse(input, out n);
+            double n;
+            bool isDigital = false;
+            isDigital = double.TryParse(input, out n);
 
             if (n <= 0)
             {
-                isNumber = false;
+                isDigital = false;
 
             }
 
-            return isNumber;
+            return isDigital;
         }
 
         private void butReset_Click(object sender, EventArgs e)
@@ -217,7 +237,7 @@ namespace Atlyginimo_skaičiuoklė
             tBoxUzakovoProc.Text = "0";
         }
 
-        private void butInsert_Click(object sender, EventArgs e)
+        public void butInsert_Click(object sender, EventArgs e)
         {
             tBoxPajamuProc.Text = "15";
             tBoxSveikatosProc.Text = "6";

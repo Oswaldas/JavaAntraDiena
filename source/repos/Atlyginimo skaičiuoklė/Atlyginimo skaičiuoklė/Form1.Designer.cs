@@ -42,10 +42,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.labelPajamuProc = new System.Windows.Forms.Label();
+            this.lblDarbdavioProc1 = new System.Windows.Forms.Label();
+            this.lblPensijuProc1 = new System.Windows.Forms.Label();
+            this.lblSveikatosProc1 = new System.Windows.Forms.Label();
+            this.lblPajamuProc1 = new System.Windows.Forms.Label();
             this.labelAtlyginimasIRankas = new System.Windows.Forms.Label();
             this.labelPajamuMokestis = new System.Windows.Forms.Label();
             this.labelSveikatosDraudimas = new System.Windows.Forms.Label();
@@ -80,6 +80,10 @@
             this.tBoxAutorines = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lblDarbdavioProc = new System.Windows.Forms.Label();
+            this.lblPensijuProc = new System.Windows.Forms.Label();
+            this.lblSveikatosProc = new System.Windows.Forms.Label();
+            this.lblPajamuProc = new System.Windows.Forms.Label();
             this.lblDarboVieta = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.lblDarbdavio = new System.Windows.Forms.Label();
@@ -101,10 +105,6 @@
             this.label25 = new System.Windows.Forms.Label();
             this.butReset = new System.Windows.Forms.Button();
             this.butInsert = new System.Windows.Forms.Button();
-            this.lblPajamuProc = new System.Windows.Forms.Label();
-            this.lblSveikatosProc = new System.Windows.Forms.Label();
-            this.lblPensijuProc = new System.Windows.Forms.Label();
-            this.lblDarbdavioProc = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gBoxAutorines.SuspendLayout();
@@ -226,10 +226,10 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.label29);
-            this.tabPage1.Controls.Add(this.label28);
-            this.tabPage1.Controls.Add(this.label27);
-            this.tabPage1.Controls.Add(this.labelPajamuProc);
+            this.tabPage1.Controls.Add(this.lblDarbdavioProc1);
+            this.tabPage1.Controls.Add(this.lblPensijuProc1);
+            this.tabPage1.Controls.Add(this.lblSveikatosProc1);
+            this.tabPage1.Controls.Add(this.lblPajamuProc1);
             this.tabPage1.Controls.Add(this.labelAtlyginimasIRankas);
             this.tabPage1.Controls.Add(this.labelPajamuMokestis);
             this.tabPage1.Controls.Add(this.labelSveikatosDraudimas);
@@ -262,41 +262,41 @@
             this.tabPage1.Text = "Atlyginimas į rankas";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // label29
+            // lblDarbdavioProc1
             // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(196, 262);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(52, 17);
-            this.label29.TabIndex = 41;
-            this.label29.Text = "0.00%:";
+            this.lblDarbdavioProc1.AutoSize = true;
+            this.lblDarbdavioProc1.Location = new System.Drawing.Point(196, 262);
+            this.lblDarbdavioProc1.Name = "lblDarbdavioProc1";
+            this.lblDarbdavioProc1.Size = new System.Drawing.Size(52, 17);
+            this.lblDarbdavioProc1.TabIndex = 41;
+            this.lblDarbdavioProc1.Text = "0.00%:";
             // 
-            // label28
+            // lblPensijuProc1
             // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(223, 235);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(52, 17);
-            this.label28.TabIndex = 40;
-            this.label28.Text = "0.00%:";
+            this.lblPensijuProc1.AutoSize = true;
+            this.lblPensijuProc1.Location = new System.Drawing.Point(223, 235);
+            this.lblPensijuProc1.Name = "lblPensijuProc1";
+            this.lblPensijuProc1.Size = new System.Drawing.Size(52, 17);
+            this.lblPensijuProc1.TabIndex = 40;
+            this.lblPensijuProc1.Text = "0.00%:";
             // 
-            // label27
+            // lblSveikatosProc1
             // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(201, 205);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(52, 17);
-            this.label27.TabIndex = 39;
-            this.label27.Text = "0.00%:";
+            this.lblSveikatosProc1.AutoSize = true;
+            this.lblSveikatosProc1.Location = new System.Drawing.Point(201, 205);
+            this.lblSveikatosProc1.Name = "lblSveikatosProc1";
+            this.lblSveikatosProc1.Size = new System.Drawing.Size(52, 17);
+            this.lblSveikatosProc1.TabIndex = 39;
+            this.lblSveikatosProc1.Text = "0.00%:";
             // 
-            // labelPajamuProc
+            // lblPajamuProc1
             // 
-            this.labelPajamuProc.AutoSize = true;
-            this.labelPajamuProc.Location = new System.Drawing.Point(135, 174);
-            this.labelPajamuProc.Name = "labelPajamuProc";
-            this.labelPajamuProc.Size = new System.Drawing.Size(52, 17);
-            this.labelPajamuProc.TabIndex = 38;
-            this.labelPajamuProc.Text = "0.00%:";
+            this.lblPajamuProc1.AutoSize = true;
+            this.lblPajamuProc1.Location = new System.Drawing.Point(135, 174);
+            this.lblPajamuProc1.Name = "lblPajamuProc1";
+            this.lblPajamuProc1.Size = new System.Drawing.Size(52, 17);
+            this.lblPajamuProc1.TabIndex = 38;
+            this.lblPajamuProc1.Text = "0.00%:";
             // 
             // labelAtlyginimasIRankas
             // 
@@ -630,6 +630,42 @@
             this.tabPage2.Text = "Atlyginimas ant popieriaus";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // lblDarbdavioProc
+            // 
+            this.lblDarbdavioProc.AutoSize = true;
+            this.lblDarbdavioProc.Location = new System.Drawing.Point(174, 307);
+            this.lblDarbdavioProc.Name = "lblDarbdavioProc";
+            this.lblDarbdavioProc.Size = new System.Drawing.Size(52, 17);
+            this.lblDarbdavioProc.TabIndex = 21;
+            this.lblDarbdavioProc.Text = "0.00%:";
+            // 
+            // lblPensijuProc
+            // 
+            this.lblPensijuProc.AutoSize = true;
+            this.lblPensijuProc.Location = new System.Drawing.Point(244, 277);
+            this.lblPensijuProc.Name = "lblPensijuProc";
+            this.lblPensijuProc.Size = new System.Drawing.Size(52, 17);
+            this.lblPensijuProc.TabIndex = 20;
+            this.lblPensijuProc.Text = "0.00%:";
+            // 
+            // lblSveikatosProc
+            // 
+            this.lblSveikatosProc.AutoSize = true;
+            this.lblSveikatosProc.Location = new System.Drawing.Point(217, 248);
+            this.lblSveikatosProc.Name = "lblSveikatosProc";
+            this.lblSveikatosProc.Size = new System.Drawing.Size(52, 17);
+            this.lblSveikatosProc.TabIndex = 19;
+            this.lblSveikatosProc.Text = "0.00%:";
+            // 
+            // lblPajamuProc
+            // 
+            this.lblPajamuProc.AutoSize = true;
+            this.lblPajamuProc.Location = new System.Drawing.Point(142, 215);
+            this.lblPajamuProc.Name = "lblPajamuProc";
+            this.lblPajamuProc.Size = new System.Drawing.Size(52, 17);
+            this.lblPajamuProc.TabIndex = 18;
+            this.lblPajamuProc.Text = "0.00%:";
+            // 
             // lblDarboVieta
             // 
             this.lblDarboVieta.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -814,42 +850,6 @@
             this.butInsert.UseVisualStyleBackColor = true;
             this.butInsert.Click += new System.EventHandler(this.butInsert_Click);
             // 
-            // lblPajamuProc
-            // 
-            this.lblPajamuProc.AutoSize = true;
-            this.lblPajamuProc.Location = new System.Drawing.Point(142, 215);
-            this.lblPajamuProc.Name = "lblPajamuProc";
-            this.lblPajamuProc.Size = new System.Drawing.Size(52, 17);
-            this.lblPajamuProc.TabIndex = 18;
-            this.lblPajamuProc.Text = "0.00%:";
-            // 
-            // lblSveikatosProc
-            // 
-            this.lblSveikatosProc.AutoSize = true;
-            this.lblSveikatosProc.Location = new System.Drawing.Point(217, 248);
-            this.lblSveikatosProc.Name = "lblSveikatosProc";
-            this.lblSveikatosProc.Size = new System.Drawing.Size(52, 17);
-            this.lblSveikatosProc.TabIndex = 19;
-            this.lblSveikatosProc.Text = "0.00%:";
-            // 
-            // lblPensijuProc
-            // 
-            this.lblPensijuProc.AutoSize = true;
-            this.lblPensijuProc.Location = new System.Drawing.Point(244, 277);
-            this.lblPensijuProc.Name = "lblPensijuProc";
-            this.lblPensijuProc.Size = new System.Drawing.Size(52, 17);
-            this.lblPensijuProc.TabIndex = 20;
-            this.lblPensijuProc.Text = "0.00%:";
-            // 
-            // lblDarbdavioProc
-            // 
-            this.lblDarbdavioProc.AutoSize = true;
-            this.lblDarbdavioProc.Location = new System.Drawing.Point(174, 307);
-            this.lblDarbdavioProc.Name = "lblDarbdavioProc";
-            this.lblDarbdavioProc.Size = new System.Drawing.Size(52, 17);
-            this.lblDarbdavioProc.TabIndex = 21;
-            this.lblDarbdavioProc.Text = "0.00%:";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -937,10 +937,10 @@
         private System.Windows.Forms.Label labelDarboVietosKaina;
         private System.Windows.Forms.Label labelAutorinesUzsakovo;
         private System.Windows.Forms.Label labelAutorinesIRankas;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label labelPajamuProc;
+        private System.Windows.Forms.Label lblDarbdavioProc1;
+        private System.Windows.Forms.Label lblPensijuProc1;
+        private System.Windows.Forms.Label lblSveikatosProc1;
+        private System.Windows.Forms.Label lblPajamuProc1;
         private System.Windows.Forms.Label lblPensiju;
         private System.Windows.Forms.Label lblSveikatos;
         private System.Windows.Forms.Label lblPajamos;
