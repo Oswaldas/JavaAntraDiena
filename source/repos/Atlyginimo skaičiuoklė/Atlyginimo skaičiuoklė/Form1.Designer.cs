@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.tBoxPajamuProc = new System.Windows.Forms.TextBox();
             this.tBoxSveikatosProc = new System.Windows.Forms.TextBox();
@@ -105,6 +106,8 @@
             this.label25 = new System.Windows.Forms.Label();
             this.butReset = new System.Windows.Forms.Button();
             this.butInsert = new System.Windows.Forms.Button();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gBoxAutorines.SuspendLayout();
@@ -114,7 +117,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 20);
+            this.label1.Location = new System.Drawing.Point(14, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(118, 17);
             this.label1.TabIndex = 0;
@@ -122,7 +125,7 @@
             // 
             // tBoxPajamuProc
             // 
-            this.tBoxPajamuProc.Location = new System.Drawing.Point(12, 40);
+            this.tBoxPajamuProc.Location = new System.Drawing.Point(14, 49);
             this.tBoxPajamuProc.Name = "tBoxPajamuProc";
             this.tBoxPajamuProc.Size = new System.Drawing.Size(100, 22);
             this.tBoxPajamuProc.TabIndex = 1;
@@ -130,7 +133,7 @@
             // 
             // tBoxSveikatosProc
             // 
-            this.tBoxSveikatosProc.Location = new System.Drawing.Point(150, 40);
+            this.tBoxSveikatosProc.Location = new System.Drawing.Point(152, 49);
             this.tBoxSveikatosProc.Name = "tBoxSveikatosProc";
             this.tBoxSveikatosProc.Size = new System.Drawing.Size(100, 22);
             this.tBoxSveikatosProc.TabIndex = 3;
@@ -139,7 +142,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(147, 20);
+            this.label2.Location = new System.Drawing.Point(149, 29);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(143, 17);
             this.label2.TabIndex = 2;
@@ -147,7 +150,7 @@
             // 
             // tBoxPensijuProc
             // 
-            this.tBoxPensijuProc.Location = new System.Drawing.Point(289, 40);
+            this.tBoxPensijuProc.Location = new System.Drawing.Point(291, 49);
             this.tBoxPensijuProc.Name = "tBoxPensijuProc";
             this.tBoxPensijuProc.Size = new System.Drawing.Size(100, 22);
             this.tBoxPensijuProc.TabIndex = 5;
@@ -156,7 +159,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(289, 20);
+            this.label3.Location = new System.Drawing.Point(291, 29);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(170, 17);
             this.label3.TabIndex = 4;
@@ -164,7 +167,7 @@
             // 
             // tBoxDarbdavioProc
             // 
-            this.tBoxDarbdavioProc.Location = new System.Drawing.Point(12, 85);
+            this.tBoxDarbdavioProc.Location = new System.Drawing.Point(14, 94);
             this.tBoxDarbdavioProc.Name = "tBoxDarbdavioProc";
             this.tBoxDarbdavioProc.Size = new System.Drawing.Size(100, 22);
             this.tBoxDarbdavioProc.TabIndex = 7;
@@ -173,7 +176,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 65);
+            this.label4.Location = new System.Drawing.Point(14, 74);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(143, 17);
             this.label4.TabIndex = 6;
@@ -181,7 +184,7 @@
             // 
             // tBoxAutoriniaiProc
             // 
-            this.tBoxAutoriniaiProc.Location = new System.Drawing.Point(150, 85);
+            this.tBoxAutoriniaiProc.Location = new System.Drawing.Point(152, 94);
             this.tBoxAutoriniaiProc.Name = "tBoxAutoriniaiProc";
             this.tBoxAutoriniaiProc.Size = new System.Drawing.Size(100, 22);
             this.tBoxAutoriniaiProc.TabIndex = 9;
@@ -190,7 +193,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(147, 65);
+            this.label5.Location = new System.Drawing.Point(149, 74);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(137, 17);
             this.label5.TabIndex = 8;
@@ -198,7 +201,7 @@
             // 
             // tBoxUzakovoProc
             // 
-            this.tBoxUzakovoProc.Location = new System.Drawing.Point(289, 85);
+            this.tBoxUzakovoProc.Location = new System.Drawing.Point(291, 94);
             this.tBoxUzakovoProc.Name = "tBoxUzakovoProc";
             this.tBoxUzakovoProc.Size = new System.Drawing.Size(100, 22);
             this.tBoxUzakovoProc.TabIndex = 11;
@@ -207,7 +210,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(289, 65);
+            this.label6.Location = new System.Drawing.Point(291, 74);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(140, 17);
             this.label6.TabIndex = 10;
@@ -217,11 +220,11 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.tabControl1.Location = new System.Drawing.Point(11, 124);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(777, 375);
+            this.tabControl1.Size = new System.Drawing.Size(814, 375);
             this.tabControl1.TabIndex = 12;
             // 
             // tabPage1
@@ -254,10 +257,10 @@
             this.tabPage1.Controls.Add(this.Autorines);
             this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.gBoxAutorines);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Location = new System.Drawing.Point(4, 27);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(769, 346);
+            this.tabPage1.Size = new System.Drawing.Size(806, 344);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Atlyginimas į rankas";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -267,7 +270,7 @@
             this.lblDarbdavioProc1.AutoSize = true;
             this.lblDarbdavioProc1.Location = new System.Drawing.Point(196, 262);
             this.lblDarbdavioProc1.Name = "lblDarbdavioProc1";
-            this.lblDarbdavioProc1.Size = new System.Drawing.Size(52, 17);
+            this.lblDarbdavioProc1.Size = new System.Drawing.Size(53, 18);
             this.lblDarbdavioProc1.TabIndex = 41;
             this.lblDarbdavioProc1.Text = "0.00%:";
             // 
@@ -276,7 +279,7 @@
             this.lblPensijuProc1.AutoSize = true;
             this.lblPensijuProc1.Location = new System.Drawing.Point(223, 235);
             this.lblPensijuProc1.Name = "lblPensijuProc1";
-            this.lblPensijuProc1.Size = new System.Drawing.Size(52, 17);
+            this.lblPensijuProc1.Size = new System.Drawing.Size(53, 18);
             this.lblPensijuProc1.TabIndex = 40;
             this.lblPensijuProc1.Text = "0.00%:";
             // 
@@ -285,7 +288,7 @@
             this.lblSveikatosProc1.AutoSize = true;
             this.lblSveikatosProc1.Location = new System.Drawing.Point(201, 205);
             this.lblSveikatosProc1.Name = "lblSveikatosProc1";
-            this.lblSveikatosProc1.Size = new System.Drawing.Size(52, 17);
+            this.lblSveikatosProc1.Size = new System.Drawing.Size(53, 18);
             this.lblSveikatosProc1.TabIndex = 39;
             this.lblSveikatosProc1.Text = "0.00%:";
             // 
@@ -294,7 +297,7 @@
             this.lblPajamuProc1.AutoSize = true;
             this.lblPajamuProc1.Location = new System.Drawing.Point(135, 174);
             this.lblPajamuProc1.Name = "lblPajamuProc1";
-            this.lblPajamuProc1.Size = new System.Drawing.Size(52, 17);
+            this.lblPajamuProc1.Size = new System.Drawing.Size(53, 18);
             this.lblPajamuProc1.TabIndex = 38;
             this.lblPajamuProc1.Text = "0.00%:";
             // 
@@ -351,7 +354,7 @@
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(398, 170);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(16, 17);
+            this.label19.Size = new System.Drawing.Size(16, 18);
             this.label19.TabIndex = 27;
             this.label19.Text = "€";
             // 
@@ -360,7 +363,7 @@
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(398, 201);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(16, 17);
+            this.label18.Size = new System.Drawing.Size(16, 18);
             this.label18.TabIndex = 26;
             this.label18.Text = "€";
             // 
@@ -369,7 +372,7 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(397, 289);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(16, 17);
+            this.label17.Size = new System.Drawing.Size(16, 18);
             this.label17.TabIndex = 25;
             this.label17.Text = "€";
             // 
@@ -378,7 +381,7 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(398, 258);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(16, 17);
+            this.label16.Size = new System.Drawing.Size(16, 18);
             this.label16.TabIndex = 24;
             this.label16.Text = "€";
             // 
@@ -387,7 +390,7 @@
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(398, 231);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(16, 17);
+            this.label15.Size = new System.Drawing.Size(16, 18);
             this.label15.TabIndex = 23;
             this.label15.Text = "€";
             // 
@@ -396,7 +399,7 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(15, 174);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(118, 17);
+            this.label14.Size = new System.Drawing.Size(127, 18);
             this.label14.TabIndex = 22;
             this.label14.Text = "Pajamų mokestis:";
             // 
@@ -405,7 +408,7 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(14, 293);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(200, 17);
+            this.label13.Size = new System.Drawing.Size(205, 18);
             this.label13.TabIndex = 21;
             this.label13.Text = "Darbo vietos kaina darbdaviui:";
             // 
@@ -414,7 +417,7 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(398, 142);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(16, 17);
+            this.label12.Size = new System.Drawing.Size(16, 18);
             this.label12.TabIndex = 20;
             this.label12.Text = "€";
             // 
@@ -423,7 +426,7 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(15, 262);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(182, 17);
+            this.label10.Size = new System.Drawing.Size(192, 18);
             this.label10.TabIndex = 19;
             this.label10.Text = "Darbdavio mokesčiai sodrai";
             // 
@@ -432,7 +435,7 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(15, 235);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(212, 17);
+            this.label11.Size = new System.Drawing.Size(222, 18);
             this.label11.TabIndex = 18;
             this.label11.Text = "Sodra. Pensijų ir soc. draudimas";
             // 
@@ -441,7 +444,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(15, 205);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(185, 17);
+            this.label9.Size = new System.Drawing.Size(194, 18);
             this.label9.TabIndex = 17;
             this.label9.Text = "Sodra. Sveikatos draudimas";
             // 
@@ -450,7 +453,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(15, 146);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(137, 17);
+            this.label8.Size = new System.Drawing.Size(142, 18);
             this.label8.TabIndex = 13;
             this.label8.Text = "Atlyginimas į rankas:";
             // 
@@ -467,6 +470,7 @@
             // cBoxPapildomaPensija
             // 
             this.cBoxPapildomaPensija.AutoSize = true;
+            this.cBoxPapildomaPensija.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.cBoxPapildomaPensija.Location = new System.Drawing.Point(17, 65);
             this.cBoxPapildomaPensija.Name = "cBoxPapildomaPensija";
             this.cBoxPapildomaPensija.Size = new System.Drawing.Size(255, 21);
@@ -478,15 +482,16 @@
             // 
             this.tBoxAtlyginimasPop.Location = new System.Drawing.Point(17, 33);
             this.tBoxAtlyginimasPop.Name = "tBoxAtlyginimasPop";
-            this.tBoxAtlyginimasPop.Size = new System.Drawing.Size(100, 22);
+            this.tBoxAtlyginimasPop.Size = new System.Drawing.Size(100, 24);
             this.tBoxAtlyginimasPop.TabIndex = 14;
             // 
             // Autorines
             // 
             this.Autorines.AutoSize = true;
+            this.Autorines.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.Autorines.Location = new System.Drawing.Point(437, 65);
             this.Autorines.Name = "Autorines";
-            this.Autorines.Size = new System.Drawing.Size(236, 21);
+            this.Autorines.Size = new System.Drawing.Size(245, 22);
             this.Autorines.TabIndex = 1;
             this.Autorines.Text = "Pajamos pagal autorines sutartis";
             this.Autorines.UseVisualStyleBackColor = true;
@@ -495,9 +500,10 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.label7.Location = new System.Drawing.Point(15, 13);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(220, 17);
+            this.label7.Size = new System.Drawing.Size(228, 18);
             this.label7.TabIndex = 13;
             this.label7.Text = "Įveskite atlyginimą ant popieriaus:";
             // 
@@ -514,7 +520,7 @@
             this.gBoxAutorines.Controls.Add(this.label20);
             this.gBoxAutorines.Location = new System.Drawing.Point(437, 92);
             this.gBoxAutorines.Name = "gBoxAutorines";
-            this.gBoxAutorines.Size = new System.Drawing.Size(316, 187);
+            this.gBoxAutorines.Size = new System.Drawing.Size(356, 187);
             this.gBoxAutorines.TabIndex = 0;
             this.gBoxAutorines.TabStop = false;
             this.gBoxAutorines.Text = "AutorinesPajamos";
@@ -523,34 +529,34 @@
             // labelAutorinesIRankas
             // 
             this.labelAutorinesIRankas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelAutorinesIRankas.Location = new System.Drawing.Point(222, 109);
+            this.labelAutorinesIRankas.Location = new System.Drawing.Point(246, 109);
             this.labelAutorinesIRankas.Name = "labelAutorinesIRankas";
-            this.labelAutorinesIRankas.Size = new System.Drawing.Size(61, 22);
+            this.labelAutorinesIRankas.Size = new System.Drawing.Size(75, 22);
             this.labelAutorinesIRankas.TabIndex = 39;
             // 
             // labelAutorinesUzsakovo
             // 
             this.labelAutorinesUzsakovo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelAutorinesUzsakovo.Location = new System.Drawing.Point(222, 143);
+            this.labelAutorinesUzsakovo.Location = new System.Drawing.Point(246, 143);
             this.labelAutorinesUzsakovo.Name = "labelAutorinesUzsakovo";
-            this.labelAutorinesUzsakovo.Size = new System.Drawing.Size(61, 22);
+            this.labelAutorinesUzsakovo.Size = new System.Drawing.Size(75, 22);
             this.labelAutorinesUzsakovo.TabIndex = 38;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(289, 113);
+            this.label24.Location = new System.Drawing.Point(327, 113);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(16, 17);
+            this.label24.Size = new System.Drawing.Size(16, 18);
             this.label24.TabIndex = 30;
             this.label24.Text = "€";
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(289, 148);
+            this.label23.Location = new System.Drawing.Point(327, 148);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(16, 17);
+            this.label23.Size = new System.Drawing.Size(16, 18);
             this.label23.TabIndex = 28;
             this.label23.Text = "€";
             // 
@@ -559,7 +565,7 @@
             this.label22.AutoSize = true;
             this.label22.Location = new System.Drawing.Point(6, 148);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(217, 17);
+            this.label22.Size = new System.Drawing.Size(234, 18);
             this.label22.TabIndex = 29;
             this.label22.Text = "Užsakovo išlaidos su mokesčiais:";
             // 
@@ -568,7 +574,7 @@
             this.label21.AutoSize = true;
             this.label21.Location = new System.Drawing.Point(6, 113);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(102, 17);
+            this.label21.Size = new System.Drawing.Size(107, 18);
             this.label21.TabIndex = 13;
             this.label21.Text = "Suma į rankas:";
             // 
@@ -586,7 +592,7 @@
             // 
             this.tBoxAutorines.Location = new System.Drawing.Point(9, 43);
             this.tBoxAutorines.Name = "tBoxAutorines";
-            this.tBoxAutorines.Size = new System.Drawing.Size(100, 22);
+            this.tBoxAutorines.Size = new System.Drawing.Size(100, 24);
             this.tBoxAutorines.TabIndex = 13;
             // 
             // label20
@@ -594,12 +600,13 @@
             this.label20.AutoSize = true;
             this.label20.Location = new System.Drawing.Point(6, 23);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(315, 17);
+            this.label20.Size = new System.Drawing.Size(327, 18);
             this.label20.TabIndex = 13;
             this.label20.Text = "Įveskite pajamas gautas pagal autorines sutartis:";
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label27);
             this.tabPage2.Controls.Add(this.lblDarbdavioProc);
             this.tabPage2.Controls.Add(this.lblPensijuProc);
             this.tabPage2.Controls.Add(this.lblSveikatosProc);
@@ -622,10 +629,10 @@
             this.tabPage2.Controls.Add(this.lblAutorinesSutartys);
             this.tabPage2.Controls.Add(this.tBoxAtlyginimasIRankas);
             this.tabPage2.Controls.Add(this.lblAtlyginimasIRankas);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Location = new System.Drawing.Point(4, 27);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(769, 346);
+            this.tabPage2.Size = new System.Drawing.Size(806, 344);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Atlyginimas ant popieriaus";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -635,7 +642,7 @@
             this.lblDarbdavioProc.AutoSize = true;
             this.lblDarbdavioProc.Location = new System.Drawing.Point(174, 307);
             this.lblDarbdavioProc.Name = "lblDarbdavioProc";
-            this.lblDarbdavioProc.Size = new System.Drawing.Size(52, 17);
+            this.lblDarbdavioProc.Size = new System.Drawing.Size(53, 18);
             this.lblDarbdavioProc.TabIndex = 21;
             this.lblDarbdavioProc.Text = "0.00%:";
             // 
@@ -644,7 +651,7 @@
             this.lblPensijuProc.AutoSize = true;
             this.lblPensijuProc.Location = new System.Drawing.Point(244, 277);
             this.lblPensijuProc.Name = "lblPensijuProc";
-            this.lblPensijuProc.Size = new System.Drawing.Size(52, 17);
+            this.lblPensijuProc.Size = new System.Drawing.Size(53, 18);
             this.lblPensijuProc.TabIndex = 20;
             this.lblPensijuProc.Text = "0.00%:";
             // 
@@ -653,7 +660,7 @@
             this.lblSveikatosProc.AutoSize = true;
             this.lblSveikatosProc.Location = new System.Drawing.Point(217, 248);
             this.lblSveikatosProc.Name = "lblSveikatosProc";
-            this.lblSveikatosProc.Size = new System.Drawing.Size(52, 17);
+            this.lblSveikatosProc.Size = new System.Drawing.Size(53, 18);
             this.lblSveikatosProc.TabIndex = 19;
             this.lblSveikatosProc.Text = "0.00%:";
             // 
@@ -662,7 +669,7 @@
             this.lblPajamuProc.AutoSize = true;
             this.lblPajamuProc.Location = new System.Drawing.Point(142, 215);
             this.lblPajamuProc.Name = "lblPajamuProc";
-            this.lblPajamuProc.Size = new System.Drawing.Size(52, 17);
+            this.lblPajamuProc.Size = new System.Drawing.Size(53, 18);
             this.lblPajamuProc.TabIndex = 18;
             this.lblPajamuProc.Text = "0.00%:";
             // 
@@ -677,9 +684,9 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(431, 307);
+            this.label26.Location = new System.Drawing.Point(435, 290);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(142, 17);
+            this.label26.Size = new System.Drawing.Size(147, 18);
             this.label26.TabIndex = 16;
             this.label26.Text = "Darbo vietos kaina: €";
             // 
@@ -696,7 +703,7 @@
             this.lblDarbdavioMokesčiai.AutoSize = true;
             this.lblDarbdavioMokesčiai.Location = new System.Drawing.Point(13, 307);
             this.lblDarbdavioMokesčiai.Name = "lblDarbdavioMokesčiai";
-            this.lblDarbdavioMokesčiai.Size = new System.Drawing.Size(155, 17);
+            this.lblDarbdavioMokesčiai.Size = new System.Drawing.Size(163, 18);
             this.lblDarbdavioMokesčiai.TabIndex = 14;
             this.lblDarbdavioMokesčiai.Text = "Darbdavio mokesčiai: €";
             // 
@@ -737,7 +744,7 @@
             this.lblPensijuDraudimas.AutoSize = true;
             this.lblPensijuDraudimas.Location = new System.Drawing.Point(10, 277);
             this.lblPensijuDraudimas.Name = "lblPensijuDraudimas";
-            this.lblPensijuDraudimas.Size = new System.Drawing.Size(228, 17);
+            this.lblPensijuDraudimas.Size = new System.Drawing.Size(238, 18);
             this.lblPensijuDraudimas.TabIndex = 9;
             this.lblPensijuDraudimas.Text = "Sodra. Pensijų ir soc. draudimas: €";
             // 
@@ -746,7 +753,7 @@
             this.lblSveikatosDraudimas.AutoSize = true;
             this.lblSveikatosDraudimas.Location = new System.Drawing.Point(10, 248);
             this.lblSveikatosDraudimas.Name = "lblSveikatosDraudimas";
-            this.lblSveikatosDraudimas.Size = new System.Drawing.Size(201, 17);
+            this.lblSveikatosDraudimas.Size = new System.Drawing.Size(210, 18);
             this.lblSveikatosDraudimas.TabIndex = 8;
             this.lblSveikatosDraudimas.Text = "Sodra. Sveikatos draudimas: €";
             // 
@@ -755,7 +762,7 @@
             this.lblPajamuMokestis.AutoSize = true;
             this.lblPajamuMokestis.Location = new System.Drawing.Point(10, 215);
             this.lblPajamuMokestis.Name = "lblPajamuMokestis";
-            this.lblPajamuMokestis.Size = new System.Drawing.Size(130, 17);
+            this.lblPajamuMokestis.Size = new System.Drawing.Size(139, 18);
             this.lblPajamuMokestis.TabIndex = 7;
             this.lblPajamuMokestis.Text = "Pajamų mokestis: €";
             // 
@@ -764,7 +771,7 @@
             this.lblAtlyginimasAntPopieriaus.AutoSize = true;
             this.lblAtlyginimasAntPopieriaus.Location = new System.Drawing.Point(10, 183);
             this.lblAtlyginimasAntPopieriaus.Name = "lblAtlyginimasAntPopieriaus";
-            this.lblAtlyginimasAntPopieriaus.Size = new System.Drawing.Size(189, 17);
+            this.lblAtlyginimasAntPopieriaus.Size = new System.Drawing.Size(194, 18);
             this.lblAtlyginimasAntPopieriaus.TabIndex = 6;
             this.lblAtlyginimasAntPopieriaus.Text = "Atlyginimas ant popieriaus: €";
             // 
@@ -781,7 +788,8 @@
             // checkBoxPensija
             // 
             this.checkBoxPensija.AutoSize = true;
-            this.checkBoxPensija.Location = new System.Drawing.Point(10, 103);
+            this.checkBoxPensija.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.checkBoxPensija.Location = new System.Drawing.Point(10, 105);
             this.checkBoxPensija.Name = "checkBoxPensija";
             this.checkBoxPensija.Size = new System.Drawing.Size(255, 21);
             this.checkBoxPensija.TabIndex = 4;
@@ -790,18 +798,17 @@
             // 
             // tboxAutorinisIRankas
             // 
-            this.tboxAutorinisIRankas.Location = new System.Drawing.Point(10, 74);
+            this.tboxAutorinisIRankas.Location = new System.Drawing.Point(10, 76);
             this.tboxAutorinisIRankas.Name = "tboxAutorinisIRankas";
-            this.tboxAutorinisIRankas.Size = new System.Drawing.Size(100, 22);
+            this.tboxAutorinisIRankas.Size = new System.Drawing.Size(100, 24);
             this.tboxAutorinisIRankas.TabIndex = 3;
-            this.tboxAutorinisIRankas.Text = "0.00";
             // 
             // lblAutorinesSutartys
             // 
             this.lblAutorinesSutartys.AutoSize = true;
-            this.lblAutorinesSutartys.Location = new System.Drawing.Point(7, 53);
+            this.lblAutorinesSutartys.Location = new System.Drawing.Point(7, 55);
             this.lblAutorinesSutartys.Name = "lblAutorinesSutartys";
-            this.lblAutorinesSutartys.Size = new System.Drawing.Size(299, 17);
+            this.lblAutorinesSutartys.Size = new System.Drawing.Size(310, 18);
             this.lblAutorinesSutartys.TabIndex = 2;
             this.lblAutorinesSutartys.Text = "Atlyginimas \"Į rankas\" pagal autorines sutartis:";
             // 
@@ -809,7 +816,7 @@
             // 
             this.tBoxAtlyginimasIRankas.Location = new System.Drawing.Point(10, 28);
             this.tBoxAtlyginimasIRankas.Name = "tBoxAtlyginimasIRankas";
-            this.tBoxAtlyginimasIRankas.Size = new System.Drawing.Size(100, 22);
+            this.tBoxAtlyginimasIRankas.Size = new System.Drawing.Size(100, 24);
             this.tBoxAtlyginimasIRankas.TabIndex = 1;
             // 
             // lblAtlyginimasIRankas
@@ -817,44 +824,68 @@
             this.lblAtlyginimasIRankas.AutoSize = true;
             this.lblAtlyginimasIRankas.Location = new System.Drawing.Point(7, 7);
             this.lblAtlyginimasIRankas.Name = "lblAtlyginimasIRankas";
-            this.lblAtlyginimasIRankas.Size = new System.Drawing.Size(180, 17);
+            this.lblAtlyginimasIRankas.Size = new System.Drawing.Size(188, 18);
             this.lblAtlyginimasIRankas.TabIndex = 0;
             this.lblAtlyginimasIRankas.Text = "Įveskite atlyginimą į rankas:";
             // 
             // label25
             // 
             this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.label25.Location = new System.Drawing.Point(12, 3);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(256, 17);
+            this.label25.Size = new System.Drawing.Size(271, 18);
             this.label25.TabIndex = 13;
             this.label25.Text = "Nustatykite % mokesčių apskaičiavimui:";
             // 
             // butReset
             // 
-            this.butReset.Location = new System.Drawing.Point(527, 76);
+            this.butReset.Location = new System.Drawing.Point(532, 89);
             this.butReset.Name = "butReset";
-            this.butReset.Size = new System.Drawing.Size(143, 41);
+            this.butReset.Size = new System.Drawing.Size(143, 54);
             this.butReset.TabIndex = 14;
-            this.butReset.Text = "Atstatyti reikšmes";
+            this.butReset.Text = "Atstatyti pradines reikšmes";
             this.butReset.UseVisualStyleBackColor = true;
             this.butReset.Click += new System.EventHandler(this.butReset_Click);
             // 
             // butInsert
             // 
-            this.butInsert.Location = new System.Drawing.Point(527, 31);
+            this.butInsert.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.butInsert.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.butInsert.Location = new System.Drawing.Point(532, 44);
             this.butInsert.Name = "butInsert";
             this.butInsert.Size = new System.Drawing.Size(143, 40);
             this.butInsert.TabIndex = 15;
             this.butInsert.Text = "Įvesti automatiškai";
-            this.butInsert.UseVisualStyleBackColor = true;
+            this.butInsert.UseVisualStyleBackColor = false;
             this.butInsert.Click += new System.EventHandler(this.butInsert_Click);
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(435, 307);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(142, 18);
+            this.label27.TabIndex = 22;
+            this.label27.Text = "Be autorinių sutarčių";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.label28.Location = new System.Drawing.Point(499, 3);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(237, 36);
+            this.label28.TabIndex = 16;
+            this.label28.Text = "Arba pasirinkite įvesti automatiškai \r\nnumatytas VMI reikšmes:";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(796, 511);
+            this.ClientSize = new System.Drawing.Size(830, 511);
+            this.Controls.Add(this.label28);
             this.Controls.Add(this.butInsert);
             this.Controls.Add(this.butReset);
             this.Controls.Add(this.label25);
@@ -871,8 +902,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tBoxPajamuProc);
             this.Controls.Add(this.label1);
-            this.MaximizeBox = false;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Atlyginimo Skaičiuoklė";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -965,6 +997,8 @@
         private System.Windows.Forms.Label lblDarbdavioProc;
         private System.Windows.Forms.Label lblPensijuProc;
         private System.Windows.Forms.Label lblSveikatosProc;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label28;
     }
 }
 

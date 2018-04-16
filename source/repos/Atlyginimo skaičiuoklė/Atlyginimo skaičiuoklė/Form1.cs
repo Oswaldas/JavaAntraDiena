@@ -10,23 +10,80 @@ using System.Windows.Forms;
 
 namespace Atlyginimo_skaičiuoklė
 {
+    //Coding and variables are in enlish, o visi formos objektai (labeliai, textboxai ir checkboxai) - pavadinti lietuviškai, kad man būtų lengviau nesusipainioti beskaičiuojant kas yra kas :) 
     public partial class Form1 : Form
     {
-        //variables
-        public double Atlyginimas_i_rankas;
-        public double Pajamu_mokestis = 0;
-        public double Sodros_sveikatos_draudimas = 0;
-        public double Sodros_pensiju_draudimas = 0;
-        public double Darbdavio_mokesciai = 0;
-        public double Darbo_vietos_kaina;
-        public double Atlyginimas_ant_popieriaus;
-        public double Autorinis_atlyginimas_i_rankas = 0;
+        //Variables
+        public double SalaryInHand;
+        public double IncomeTax = 0;
+        public double SodraHealthInsurance = 0;
+        public double SodraPensionInsurance = 0;
+        public double EmployersFees = 0;
+        public double WorkPlacePrice;
+        public double SalaryOnPaper;
+        public double AuthorsSalaryInHand = 0;
 
         public Form1()
         {
             InitializeComponent();
         }
-        //hiden Authors Salary In Hand
+        //Method To Get Same Variables From Tax Textboxes
+        private void GetPercentageTBox(out double InsurancePercent, out double HealthPercent, out double PensionPercent, out double EmployeePercent, out double AuthorsPercent, out double ClientPercent)
+        {
+            //Get Nulls If Textboxes Are Empty
+            InsurancePercent = HealthPercent = PensionPercent = EmployeePercent = AuthorsPercent = ClientPercent = 0;
+            double.TryParse(tBoxPajamuProc.Text, out InsurancePercent);
+            double.TryParse(tBoxSveikatosProc.Text, out HealthPercent);
+            double.TryParse(tBoxPensijuProc.Text, out PensionPercent);
+            double.TryParse(tBoxDarbdavioProc.Text, out EmployeePercent);
+            double.TryParse(tBoxAutoriniaiProc.Text, out AuthorsPercent);
+            double.TryParse(tBoxUzakovoProc.Text, out ClientPercent);
+        }
+        //Counting Authors Salary In Hand
+        private void butSkaiciuotiAtlyginimaIRankas_Click(object sender, EventArgs e)
+        {
+            //Variable SalaryOnPaper Obtained From Textbox 
+            double SalaryOnPaper = 0.0;
+            if (isDigital(tBoxAtlyginimasPop.Text))
+            {
+                SalaryOnPaper = Convert.ToDouble(this.tBoxAtlyginimasPop.Text);
+            }
+            else
+            {
+                MessageBox.Show("Turite įvesti skaičių į Atlyginimo lauką");
+                return;
+            }
+            //Variables Obtained From The Tax Window
+            double InsurancePercent, HealthPercent, PensionPercent, EmployeePercent, AuthorsPercent, ClientPercent;
+            GetPercentageTBox(out InsurancePercent, out HealthPercent, out PensionPercent, out EmployeePercent, out AuthorsPercent, out ClientPercent);
+            
+            //Counting Fees With Additional 2% Pension
+            if (cBoxPapildomaPensija.Checked == true)
+            {
+                PensionPercent += 2;
+            }
+            //Counting Fees Withoud Additional Pension
+            IncomeTax = Math.Round((SalaryOnPaper * (InsurancePercent / 100)), 2);
+            SodraHealthInsurance = Math.Round((SalaryOnPaper * (HealthPercent / 100)), 2);
+            SodraPensionInsurance = Math.Round((SalaryOnPaper * (PensionPercent / 100)), 2);
+            EmployersFees = Math.Round((SalaryOnPaper * (EmployeePercent / 100)), 2);
+            SalaryInHand = Math.Round((SalaryOnPaper - (IncomeTax + SodraHealthInsurance + SodraPensionInsurance)), 2);
+            WorkPlacePrice = SalaryOnPaper + EmployersFees;
+
+            //Calculations Output To Label
+            labelAtlyginimasIRankas.Text = SalaryInHand.ToString();
+            labelPajamuMokestis.Text = IncomeTax.ToString();
+            labelSveikatosDraudimas.Text = SodraHealthInsurance.ToString();
+            labelPensijuDraudimas.Text = SodraPensionInsurance.ToString();
+            labelDarbdavioSodrai.Text = EmployersFees.ToString();
+            labelDarboVietosKaina.Text = WorkPlacePrice.ToString();
+            //Percentage Label Output
+            lblPajamuProc1.Text = (InsurancePercent / 100).ToString("P");
+            lblSveikatosProc1.Text = (HealthPercent / 100).ToString("P");
+            lblPensijuProc1.Text = (PensionPercent / 100).ToString("P");
+            lblDarbdavioProc1.Text = (EmployeePercent / 100).ToString("P");
+        }
+        //Hiden Authors Salary In Hand
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             gBoxAutorines.Visible = false;
@@ -46,172 +103,129 @@ namespace Atlyginimo_skaičiuoklė
                     }
             }
         }
-        //Counting Authors Salary In Hand
-        private void butSkaiciuotiAtlyginimaIRankas_Click(object sender, EventArgs e)
-        {
-            double Atlyginimas_ant_popieriaus = 0.0;
-            //variable SalaryOnPaper obtained from textbox 
-            if (isDigital(tBoxAtlyginimasPop.Text))
-            {
-                Atlyginimas_ant_popieriaus = Convert.ToDouble(this.tBoxAtlyginimasPop.Text);
-            }
-            else
-            {
-                MessageBox.Show("Turite įvesti skaičių");
-                return;
-            }
-            //variables obtained from the tax window
-            //double Atlyginimas_ant_popieriaus = Convert.ToDouble(this.tBoxAtlyginimasPop.Text);
-            double PajamuProc = Convert.ToDouble(this.tBoxPajamuProc.Text);
-            double SveikatosProc = Convert.ToDouble(this.tBoxSveikatosProc.Text);
-            double PensijuProc = Convert.ToDouble(this.tBoxPensijuProc.Text);
-            double DarbdavioProc = Convert.ToDouble(this.tBoxDarbdavioProc.Text);
-            double Papildomas_proc = Convert.ToDouble(this.tBoxAtlyginimasPop.Text) / 100;
-
-            //Counting Fees
-            if (cBoxPapildomaPensija.Checked == true)
-            {
-                PensijuProc += 2;
-            }
-            Pajamu_mokestis = Math.Round((Atlyginimas_ant_popieriaus * (PajamuProc / 100)), 2);
-            Sodros_sveikatos_draudimas = Math.Round((Atlyginimas_ant_popieriaus * (SveikatosProc / 100)), 2);
-            Sodros_pensiju_draudimas = Math.Round((Atlyginimas_ant_popieriaus * (PensijuProc / 100)), 2);
-            Darbdavio_mokesciai = Math.Round((Atlyginimas_ant_popieriaus * (DarbdavioProc / 100)), 2);
-            Atlyginimas_i_rankas = Math.Round((Atlyginimas_ant_popieriaus - (Pajamu_mokestis + Sodros_sveikatos_draudimas + Sodros_pensiju_draudimas)), 2);
-            Darbo_vietos_kaina = Atlyginimas_ant_popieriaus + Darbdavio_mokesciai;
-
-            //Procentines israiskos isvedimas
-            //labelPajamuProc.Text;
-            //Skaiciavimu isvedimas i label
-            labelAtlyginimasIRankas.Text = Atlyginimas_i_rankas.ToString();
-            labelPajamuMokestis.Text = Pajamu_mokestis.ToString();
-            labelSveikatosDraudimas.Text = Sodros_sveikatos_draudimas.ToString();
-            labelPensijuDraudimas.Text = Sodros_pensiju_draudimas.ToString();
-            labelDarbdavioSodrai.Text = Darbdavio_mokesciai.ToString();
-            labelDarboVietosKaina.Text = Darbo_vietos_kaina.ToString();
-            //Procentines israiskos isvedimas
-            lblPajamuProc1.Text = (PajamuProc / 100).ToString("P");
-            lblSveikatosProc1.Text = (SveikatosProc / 100).ToString("P");
-            lblPensijuProc1.Text = (PensijuProc / 100).ToString("P");
-            lblDarbdavioProc1.Text = (DarbdavioProc / 100).ToString("P");
-        }
-
+        //Control To Let Input Only Numbers And "."
         private bool isDigital(string input)
         {
             double n;
             bool isDigital = false;
             isDigital = double.TryParse(input, out n);
-
             if (n <= 0)
             {
                 isDigital = false;
-
             }
-
             return isDigital;
         }
-
-        //private void cBoxPapildomaPensija_CheckedChanged(object sender, EventArgs e)
-
+        //Counting Authors Salary In Hand
         private void butSkaiciuoti2_Click(object sender, EventArgs e)
         {
-            //kintamieji
-            double Autorines_pajamos_i_rankas;
-            double Autoriniai_mokesciai = 0;
-            double Uzsakovo_mokesciai = 0;
-            double Uzsakovo_mokama_suma;
-            //kintamieji gaunami is mokesciu nustatymo lango
-            double Autorines_pajamos = Convert.ToDouble(this.tBoxAutorines.Text);
-            double tBoxAutoriniaiProc = Convert.ToDouble(this.tBoxAutorines.Text) * Convert.ToDouble(this.tBoxAutoriniaiProc.Text) / 100;
-            double tBoxUzakovoProc = Convert.ToDouble(this.tBoxAutorines.Text) * Convert.ToDouble(this.tBoxUzakovoProc.Text) / 100;
-            //Autoriniu pajamu skaiciavimas
-            Autorines_pajamos_i_rankas = Convert.ToDouble(this.tBoxAutorines.Text) - tBoxAutoriniaiProc;
-            Uzsakovo_mokama_suma = Autorines_pajamos + tBoxUzakovoProc;
-            //isvedimas
-            labelAutorinesIRankas.Text = Autorines_pajamos_i_rankas.ToString();
-            labelAutorinesUzsakovo.Text = Uzsakovo_mokama_suma.ToString();
-        }
+            //Variables
+            double AuthorsSalaryInHand;
+            double AuthorsTax = 0;
+            double ClientTaxes = 0;
+            double ClientsPaidAmount;
 
-        private void buttonSkaiciuotiIRankas_Click(object sender, EventArgs e)
-        {
-            double Atlyginimas_i_rankas = 0;
-            double Autorinis_atlyginimas_i_rankas = 0;
-            //variable SalaryInHand obtained from textbox 
-            if (IsDigital(tBoxAtlyginimasIRankas.Text) || IsDigital(tboxAutorinisIRankas.Text))
+            double AuthorsIncome = 0.0;
+            if (isDigital(tBoxAutorines.Text))
             {
-                Atlyginimas_i_rankas = Convert.ToDouble(this.tBoxAtlyginimasIRankas.Text);
-                Autorinis_atlyginimas_i_rankas = Convert.ToDouble(this.tboxAutorinisIRankas.Text);
+                AuthorsIncome = Convert.ToDouble(this.tBoxAutorines.Text);
             }
-
             else
             {
-                MessageBox.Show("Turite įvesti skaičių");
+                MessageBox.Show("Įveskite autorinių pajamų nurodytų sutartyje sumą");
                 return;
             }
-            //kintamieji gaunami is mokesciu nustatymo lango
-            double Atlyginimas_i_rankasTBox = Convert.ToDouble(this.tBoxAtlyginimasIRankas.Text);
-            double Pajamu_mokestisTBox = Convert.ToDouble(this.tBoxPajamuProc.Text);
-            double Sodros_sveikatos_draudimasTBox = Convert.ToDouble(this.tBoxSveikatosProc.Text);
-            double Sodros_pensiju_draudimasTBox = Convert.ToDouble(this.tBoxPensijuProc.Text);
-            double Autorinis_atlyginimas_i_rankasTBox = Convert.ToDouble(this.tboxAutorinisIRankas.Text);
-            double Darbdavio_mokesciaiTBox = Convert.ToDouble(this.tBoxDarbdavioProc.Text);
-
-            // Papildomai pensijai
-            if (checkBoxPensija.Checked == true)
-            {
-                Sodros_pensiju_draudimasTBox += 2;
-            }
-            if (Autorinis_atlyginimas_i_rankasTBox > 0 && Atlyginimas_i_rankasTBox > 0)
-            {
-                double autorines_popierius = Math.Round(Autorinis_atlyginimas_i_rankasTBox * (100 / (100 - (Pajamu_mokestisTBox + Sodros_sveikatos_draudimasTBox + Sodros_pensiju_draudimasTBox))), 2);
-                double pajamu_autorines = Math.Round((autorines_popierius * (Pajamu_mokestisTBox / 100)), 2);
-                double sveikatos_autorines = Math.Round((autorines_popierius * (Sodros_sveikatos_draudimasTBox / 100)), 2);
-                double pensiju_autorines = Math.Round((autorines_popierius * (Sodros_pensiju_draudimasTBox / 100)), 2);
-
-                //Mokesciu skaiciavimai su procentais 
-                double atlyginimas_ant_popieriaus2 = Math.Round(Atlyginimas_i_rankasTBox * (100 / (100 - (Pajamu_mokestisTBox + Sodros_sveikatos_draudimasTBox + Sodros_pensiju_draudimasTBox))), 2);
-                double pajamu_mokestis2 = Math.Round((atlyginimas_ant_popieriaus2 * (Pajamu_mokestisTBox / 100)), 2);
-                double sveikatos_draudimas2 = Math.Round((atlyginimas_ant_popieriaus2 * (Sodros_sveikatos_draudimasTBox / 100)), 2);
-                double pensiju_draudimas2 = Math.Round((atlyginimas_ant_popieriaus2 * (Sodros_pensiju_draudimasTBox / 100)), 2);
-                Darbdavio_mokesciai = Math.Round((atlyginimas_ant_popieriaus2 * (Darbdavio_mokesciaiTBox / 100)), 2);
-                Darbo_vietos_kaina = Math.Round((atlyginimas_ant_popieriaus2 + Darbdavio_mokesciai), 2);
-
-                Atlyginimas_ant_popieriaus = atlyginimas_ant_popieriaus2 + autorines_popierius;
-                Pajamu_mokestis = pajamu_autorines + pajamu_mokestis2;
-                Sodros_sveikatos_draudimas = sveikatos_draudimas2 + sveikatos_autorines;
-                Sodros_pensiju_draudimas = pensiju_draudimas2 + pensiju_autorines;
-            }
-            else if (Autorinis_atlyginimas_i_rankasTBox > 0)
-            {
-                Atlyginimas_ant_popieriaus = Math.Round(Autorinis_atlyginimas_i_rankasTBox * (100 / (100 - (Pajamu_mokestisTBox + Sodros_sveikatos_draudimasTBox + Sodros_pensiju_draudimasTBox))), 2);
-                Pajamu_mokestis = Math.Round((Atlyginimas_ant_popieriaus * (Pajamu_mokestisTBox / 100)), 2);
-                Sodros_sveikatos_draudimas = Math.Round((Atlyginimas_ant_popieriaus * (Sodros_sveikatos_draudimasTBox / 100)), 2);
-                Sodros_pensiju_draudimas = Math.Round((Atlyginimas_ant_popieriaus * (Sodros_pensiju_draudimasTBox / 100)), 2);
-            }
-
-            else if (Atlyginimas_i_rankasTBox > 0)
-            {
-                Atlyginimas_ant_popieriaus = Math.Round(Atlyginimas_i_rankasTBox * (100 / (100 - (Pajamu_mokestisTBox + Sodros_sveikatos_draudimasTBox + Sodros_pensiju_draudimasTBox))), 2);
-                Pajamu_mokestis = Math.Round((Atlyginimas_ant_popieriaus * (Pajamu_mokestisTBox / 100)), 2);
-                Sodros_sveikatos_draudimas = Math.Round((Atlyginimas_ant_popieriaus * (Sodros_sveikatos_draudimasTBox / 100)), 2);
-                Sodros_pensiju_draudimas = Math.Round((Atlyginimas_ant_popieriaus * (Sodros_pensiju_draudimasTBox / 100)), 2);
-                Darbdavio_mokesciai = Math.Round((Atlyginimas_ant_popieriaus * (Darbdavio_mokesciaiTBox / 100)), 2);
-                Darbo_vietos_kaina = Math.Round((Atlyginimas_ant_popieriaus + Darbdavio_mokesciai), 2);
-            }
-            //Skaiciavimu isvedimas
-            lblPajamos.Text = Pajamu_mokestis.ToString();
-            lblSveikatos.Text = Sodros_sveikatos_draudimas.ToString();
-            lblPensiju.Text = Sodros_pensiju_draudimas.ToString();
-            lblAtlyginimas.Text = Atlyginimas_ant_popieriaus.ToString();
-            lblDarbdavio.Text = Darbdavio_mokesciai.ToString();
-            lblDarboVieta.Text = Darbo_vietos_kaina.ToString();
-            //Procentines israiskos isvedimas
-            lblPajamuProc.Text = (Pajamu_mokestisTBox / 100).ToString("P");
-            lblSveikatosProc.Text = (Sodros_sveikatos_draudimasTBox / 100).ToString("P");
-            lblPensijuProc.Text = (Sodros_pensiju_draudimasTBox / 100).ToString("P");
-            lblDarbdavioProc.Text = (Darbdavio_mokesciaiTBox / 100).ToString("P");
+            //Variables Obtained From The Tax Window
+            double InsurancePercent, HealthPercent, PensionPercent, EmployeePercent, AuthorsPercent, ClientPercent;
+            GetPercentageTBox(out InsurancePercent, out HealthPercent, out PensionPercent, out EmployeePercent, out AuthorsPercent, out ClientPercent);
+            //Counting Authors Salary
+            AuthorsTax = Math.Round((AuthorsIncome * (AuthorsPercent / 100)), 2);
+            AuthorsSalaryInHand = Math.Round((AuthorsIncome - AuthorsTax), 2);
+            ClientTaxes = Math.Round((AuthorsIncome * (ClientPercent / 100)), 2);
+            ClientsPaidAmount = AuthorsIncome + ClientTaxes;
+            //Output to Labels
+            labelAutorinesIRankas.Text = AuthorsSalaryInHand.ToString();
+            labelAutorinesUzsakovo.Text = ClientsPaidAmount.ToString();
         }
 
+        //Counting Salary On Paper
+        private void buttonSkaiciuotiIRankas_Click(object sender, EventArgs e)
+        {
+            double SalaryInHand = 0;
+            double AuthorsSalaryInHand = 0;
+            //Variable SalaryInHand Obtained From Textbox 
+            if (IsDigital(tBoxAtlyginimasIRankas.Text) || IsDigital(tboxAutorinisIRankas.Text))
+            {
+                SalaryInHand = 0;
+                double.TryParse(tBoxAtlyginimasIRankas.Text, out SalaryInHand);
+                AuthorsSalaryInHand = 0;
+                double.TryParse(tboxAutorinisIRankas.Text, out AuthorsSalaryInHand);
+            }
+            else
+            {
+                MessageBox.Show("Turite įvesti skaičių į bent vieno Atlyginimo lauką");
+                return;
+            }
+            //Variables Obtained From The Tax Window
+            double InsurancePercent, HealthPercent, PensionPercent, EmployeePercent, AuthorsPercent, ClientPercent;
+            GetPercentageTBox(out InsurancePercent, out HealthPercent, out PensionPercent, out EmployeePercent, out AuthorsPercent, out ClientPercent);
+            // Additional Pension
+            if (checkBoxPensija.Checked == true)
+            {
+                PensionPercent += 2;
+            }
+            //Counting Salary On Paper with Authors Salary
+            if (AuthorsSalaryInHand > 0 && SalaryInHand > 0)
+            {
+                double AuthorsSalaryOnPaper = Math.Round(AuthorsSalaryInHand * (100 / (100 - (InsurancePercent + HealthPercent + PensionPercent))), 2);
+                double AuthorsIncome = Math.Round((AuthorsSalaryOnPaper * (InsurancePercent / 100)), 2);
+                double AuthorsHealthCare = Math.Round((AuthorsSalaryOnPaper * (HealthPercent / 100)), 2);
+                double AuthorsPension = Math.Round((AuthorsSalaryOnPaper * (PensionPercent / 100)), 2);
+
+                //Counting Salary On Paper And Then Counting Percentage From That Salary 
+                double SalaryOnlyOnPaper = Math.Round(SalaryInHand * (100 / (100 - (InsurancePercent + HealthPercent + PensionPercent))), 2);
+                double IncomeTax2 = Math.Round((SalaryOnlyOnPaper * (InsurancePercent / 100)), 2);
+                double HealthCare2 = Math.Round((SalaryOnlyOnPaper * (HealthPercent / 100)), 2);
+                double PensionInsurance2 = Math.Round((SalaryOnlyOnPaper * (PensionPercent / 100)), 2);
+                EmployersFees = Math.Round((SalaryOnlyOnPaper * (EmployeePercent / 100)), 2);
+                WorkPlacePrice = Math.Round((SalaryOnlyOnPaper + EmployersFees), 2);
+
+                SalaryOnPaper = SalaryOnlyOnPaper + AuthorsSalaryOnPaper;
+                IncomeTax = AuthorsIncome + IncomeTax2;
+                SodraHealthInsurance = AuthorsHealthCare + HealthCare2;
+                SodraPensionInsurance = AuthorsPension + PensionInsurance2;
+            }
+            //Counting Only Authors Salary
+            else if (AuthorsSalaryInHand > 0)
+            {
+                SalaryOnPaper = Math.Round(AuthorsSalaryInHand * (100 / (100 - (InsurancePercent + HealthPercent + PensionPercent))), 2);
+                IncomeTax = Math.Round((SalaryOnPaper * (InsurancePercent / 100)), 2);
+                SodraHealthInsurance = Math.Round((SalaryOnPaper * (HealthPercent / 100)), 2);
+                SodraPensionInsurance = Math.Round((SalaryOnPaper * (PensionPercent / 100)), 2);
+            }
+            //Counting Only Main Job Salary
+            else if (SalaryInHand > 0)
+            {
+                SalaryOnPaper = Math.Round(SalaryInHand * (100 / (100 - (InsurancePercent + HealthPercent + PensionPercent))), 2);
+                IncomeTax = Math.Round((SalaryOnPaper * (InsurancePercent / 100)), 2);
+                SodraHealthInsurance = Math.Round((SalaryOnPaper * (HealthPercent / 100)), 2);
+                SodraPensionInsurance = Math.Round((SalaryOnPaper * (PensionPercent / 100)), 2);
+                EmployersFees = Math.Round((SalaryOnPaper * (EmployeePercent / 100)), 2);
+                WorkPlacePrice = Math.Round((SalaryOnPaper + EmployersFees), 2);
+            }
+            //Output To Label
+            lblPajamos.Text = IncomeTax.ToString();
+            lblSveikatos.Text = SodraHealthInsurance.ToString();
+            lblPensiju.Text = SodraPensionInsurance.ToString();
+            lblAtlyginimas.Text = SalaryOnPaper.ToString();
+            lblDarbdavio.Text = EmployersFees.ToString();
+            lblDarboVieta.Text = WorkPlacePrice.ToString();
+            //Percentage Output To Label
+            lblPajamuProc.Text = (InsurancePercent / 100).ToString("P");
+            lblSveikatosProc.Text = (HealthPercent / 100).ToString("P");
+            lblPensijuProc.Text = (PensionPercent / 100).ToString("P");
+            lblDarbdavioProc.Text = (EmployeePercent / 100).ToString("P");
+        }
+        //Control To Let Input Only Numbers And "."
         private bool IsDigital(string input)
         {
             double n;
@@ -226,17 +240,17 @@ namespace Atlyginimo_skaičiuoklė
 
             return isDigital;
         }
-
+        //Button To Reset Tax Values
         private void butReset_Click(object sender, EventArgs e)
         {
-            tBoxPajamuProc.Text = "0";
-            tBoxSveikatosProc.Text = "0";
-            tBoxPensijuProc.Text = "0";
-            tBoxDarbdavioProc.Text = "0";
-            tBoxAutoriniaiProc.Text = "0";
-            tBoxUzakovoProc.Text = "0";
+            tBoxPajamuProc.Text = tBoxSveikatosProc.Text = tBoxPensijuProc.Text = tBoxDarbdavioProc.Text = tBoxAutoriniaiProc.Text = tBoxUzakovoProc.Text = "0";
+            tBoxAtlyginimasPop.Text = tBoxAutorines.Text = tBoxAtlyginimasIRankas.Text = tboxAutorinisIRankas.Text = "";
+            // Reset Calculations
+            labelAtlyginimasIRankas.Text = labelPajamuMokestis.Text = labelSveikatosDraudimas.Text = labelPensijuDraudimas.Text = labelDarbdavioSodrai.Text = labelDarboVietosKaina.Text = labelAutorinesIRankas.Text = labelAutorinesUzsakovo.Text = lblPajamos.Text = lblSveikatos.Text = lblPensiju.Text = lblAtlyginimas.Text = lblDarbdavio.Text = lblDarboVieta.Text = "";
+            //Reset Percentage
+            lblPajamuProc1.Text = lblSveikatosProc1.Text = lblPensijuProc1.Text = lblDarbdavioProc1.Text = lblPajamuProc.Text = lblSveikatosProc.Text = lblPensijuProc.Text = lblDarbdavioProc.Text = ("0.00%");
         }
-
+        //Button To Input Tax Values Based On VMI Values in LT
         public void butInsert_Click(object sender, EventArgs e)
         {
             tBoxPajamuProc.Text = "15";
